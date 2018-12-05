@@ -1,5 +1,5 @@
 <template>
-  <div class="piechart" style="width:600px; display:inline-block; margin:0 40px 0 0">
+  <div class="i-chart" style="width:600px; display:inline-block; margin:0 40px 0 0">
     <el-container>
       <el-header>
         <div style="display:inline-block; margin: auto"><span class="chartTitle">{{ chartTitle }}</span></div>

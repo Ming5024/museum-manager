@@ -183,6 +183,36 @@ export default {
   mounted() {
     this.refreshSpecieData(7);
     this.refreshAgeData(7);
+
+    // this.$http.post('http://localhost:8000/manager/audio',
+    //   {
+    //     headers: {
+    //       'content-type': "application/x-www-form-urlencoded",
+    //     }
+    //   }
+    // ).then(function (response) {
+    //   console.log(response)
+    //   if(response.data.audio) {
+    //     const a = document.createElement('audio');
+    //     a.autoplay = "true"
+    //     a.src = `data:audio/mp3;base64,${response.data.audio}`;
+    //     document.body.appendChild(a);
+    //   }
+    // }).catch(error => {
+    //   console.log(error);
+    // });
+    this.$http.get('http://localhost:8000/manager/audio').then(response => {
+      console.log(response)
+        if(response.data.audio) {
+          const a = document.createElement('audio');
+          a.autoplay = "true"
+          a.controls = "true"
+          a.src = `data:audio/mp3;base64,${response.data.audio}`;
+          document.body.appendChild(a);
+        }
+    }) .catch(error => {
+      console.log(error);
+    });
   },
 }
 </script>
